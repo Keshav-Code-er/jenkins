@@ -72,7 +72,7 @@ pipeline {
         }
          
       //   # this can be generally used for approval purpose
-         stage('Example') {
+         stage('input') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
