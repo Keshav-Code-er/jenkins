@@ -1,5 +1,11 @@
 pipeline {
       agent { node { label 'Agent-1' } }
+      options{
+            timeout(time: 1, unit: 'HOURS')
+      }
+      environment {
+            USER = 'sivakumar'
+      }
 
       stages {
             stage('Build') {
@@ -9,6 +15,7 @@ pipeline {
                          ls -ltr
                          pwd
                          echo "Hello from Github push webhook event"
+                         printenv
 
                          '''
                   }
@@ -23,6 +30,15 @@ pipeline {
                         echo 'Deploying....'
                   }
             }
+
+            stage('Example') {
+            environment { 
+               AUTH = credentials('ssh-auth') 
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
       }
 
       post {
