@@ -102,6 +102,7 @@ pipeline {
                    
                     steps {
                         echo "On Branch A"
+                        sh 'sleep 10'
                     }
                 }
                 stage('Branch B') {
