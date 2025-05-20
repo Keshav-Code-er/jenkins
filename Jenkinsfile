@@ -71,6 +71,7 @@ pipeline {
             }
         }
          
+      //   # this can be generally used for approval purpose
          stage('Example') {
             input {
                 message "Should we continue?"
